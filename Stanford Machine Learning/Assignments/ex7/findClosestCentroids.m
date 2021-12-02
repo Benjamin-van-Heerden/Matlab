@@ -21,6 +21,14 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+centroid_distances = zeros(1, K);
+
+for i = 1:size(X, 1),
+  for j = 1:K,
+    centroid_distances(j) = norm(X(i, :) - centroids(j, :));
+  endfor
+  [_, idx(i)] = min(centroid_distances);
+
 
 
 
